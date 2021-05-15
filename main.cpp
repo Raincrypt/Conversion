@@ -54,6 +54,6 @@ int main()
 			error();
 		}
 	} while (choice != 7);
-
+	
 	return 0;
 }

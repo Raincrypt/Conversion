@@ -17,22 +17,22 @@ int input(string input_type) {
 	return value;
 }
 
-void output(const int result, const int value, const string input_type, const string output_type) {
+void output(const int value, const int result, const string input_type, const string output_type) {
 	cout << "-----------------------RESULT----------------------------" << endl;
 	cout << input_type << " Value entered: " << value << endl;
-	cout << " Value converted to " << output_type << " : " << result << endl;
+	cout << "Value converted to " << output_type << " : " << result << endl;
 	cout << "---------------------------------------------------------\n" << endl;
 }
-void output(const string result, const int value, const string input_type, const string output_type) {
+void output(const string value, const int result, const string input_type, const string output_type) {
 	cout << "-----------------------RESULT----------------------------" << endl;
 	cout << input_type << " Value entered: " << value << endl;
-	cout << " Value converted to " << output_type << " : " << result << endl;
+	cout << "Value converted to " << output_type << " : " << result << endl;
 	cout << "---------------------------------------------------------\n" << endl;
 }
-void output(const int result, const string value, const string input_type, const string output_type) {
+void output(const int value, const string result, const string input_type, const string output_type) {
 	cout << "-----------------------RESULT----------------------------" << endl;
 	cout << input_type << " Value entered: " << value << endl;
-	cout << " Value converted to " << output_type << " : " << result << endl;
+	cout << "Value converted to " << output_type << " : " << result << endl;
 	cout << "---------------------------------------------------------\n" << endl;
 }
 

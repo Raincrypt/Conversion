@@ -7,6 +7,7 @@
 using namespace std;
 
 string hex_val(int, string);
+int hex_val(string, string);
 
 int decimal_to_binary(int input) {
 	int temp{ 0 };
@@ -35,7 +36,7 @@ int binary_to_decimal(int input) {
 	{
 		int temp = num % 10;
 		num = num / 10;
-		decimal += pow(2, i);
+		decimal += temp * pow(2, i);
 	}
 	//-----------------------------------
 
@@ -54,7 +55,7 @@ string decimal_to_hexadecimal(int input) {
 		num = num / 16;
 		hexadecimal += hex_val(temp, "Decimal"); //concatinating strings
 	}
-	reverse(hexadecimal.begin(), hexadecimal.end()); //reversing string
+	reverse(hexadecimal.begin(), hexadecimal.end()); //reversing string [reverse() function is included in bits/stdc++.h library]
 	//----------------------------------------
 
 	return hexadecimal;
@@ -101,15 +102,13 @@ int hexadecimal_to_binary(string input) {
 
 string hex_val(int value, string input_type) {
 	string val = to_string(value);
-	string error{ "Error Occured..." };
+	string error{ "Error Occured...\n Check hex_val function..." };
 
 	int n{ 0 };
 	if (input_type == "Binary")
 		n = 1;
-	else if (input_type == "Decimal")
-		n = 2;
 	else
-		n = 3;
+		n = 2;
 
 	//Assigning hex values in 'hex_value()' function
 	switch (n)
@@ -164,12 +163,29 @@ string hex_val(int value, string input_type) {
 		else
 			return val;
 		break;
-	case 3:
+	default:
+		return error;
+	}
+	return error;
+}
+
+int hex_val(string value, string input_type) {
+	int n{ 0 };
+	if (input_type == "Binary")
+		n = 1;
+	else
+		n = 2;
+
+	switch (n)
+	{
+	case 1:
+
+		break;
+	case 2:
 
 		break;
 	default:
-
-		break;
+		return 0;
 	}
-	return error;
+	return 0;
 }
