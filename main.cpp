@@ -45,7 +45,7 @@ int main()
 		case 6:
 			value = input("Decimal");
 			RESULT = decimal_to_hexadecimal(value);
-			output(value, result, "Decimal", "Hexadecimal");
+			output(value, RESULT, "Decimal", "Hexadecimal");
 			break;
 		case 7:
 			exit();

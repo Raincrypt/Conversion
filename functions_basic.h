@@ -77,44 +77,41 @@ string binary_to_hexadecimal(int input) {
 
 	return hexadecimal;
 }
-int hexadecimal_to_decimal(string input) {
-	int temp{ 0 };
-	int decimal{ 0 };
-	string num{ input };
 
-	//-----Hexadecimal to Decimal working-----
-
-	//----------------------------------------
-
-	return decimal;
-}
 int hexadecimal_to_binary(string input) {
 	int temp{ 0 };
 	int binary{ 0 };
 	string num{ input };
 
 	//-----Hexadecimal to Binary working-----
-
+	for (int i = 0; i < input.length() ; i++)
+	{
+		temp = hex_val(num.at(i), "Binary");
+		binary = binary + temp * pow(10, i);
+	}
 	//----------------------------------------
 
 	return binary;
 }
 
-string hex_val(int value, string input_type) {
-	string val = to_string(value);
-	string error{ "Error Occured...\n Check hex_val function..." };
+int hexadecimal_to_decimal(string input) {
+	int temp{ 0 };
+	int decimal{ 0 };
+	string num{ input };
 
-	int n{ 0 };
-	if (input_type == "Binary")
-		n = 1;
-	else
-		n = 2;
+	//-----Hexadecimal to Decimal working-----
+	
+	//----------------------------------------
+
+	return decimal;
+}
+
+
+string hex_val(int value, string input_type) {
 
 	//Assigning hex values in 'hex_value()' function
-	switch (n)
-	{
-	case 1:
-		if (value == 10 || value == 1010)
+	if (input_type == "Binary") {
+		if (value == 1010)
 			return "A";
 		else if (value == 1011)
 			return "B";
@@ -126,28 +123,28 @@ string hex_val(int value, string input_type) {
 			return "E";
 		else if (value == 1111)
 			return "F";
-		else if (value = 0000)
+		else if (value == 0)
 			return "0";
-		else if (value > 0000 && value <= 0001)
+		else if (value == 1)
 			return "1";
-		else if (value > 0001 && value <= 0010)
+		else if (value == 10)
 			return "2";
-		else if (value > 0010 && value <= 0011)
+		else if (value == 11)
 			return "3";
-		else if (value > 0011 && value <= 0100)
+		else if (value == 100)
 			return "4";
-		else if (value > 0100 && value <= 0101)
+		else if (value == 101)
 			return "5";
-		else if (value > 0101 && value <= 0110)
+		else if (value == 110)
 			return "6";
-		else if (value > 0110 && value <= 0111)
+		else if (value == 111)
 			return "7";
-		else if (value > 0111 && value <= 1000)
+		else if (value == 1000)
 			return "8";
-		else if (value > 1000 && value <= 1001)
+		else
 			return "9";
-		break;
-	case 2:
+	}
+	else{
 		if (value == 10)
 			return "A";
 		else if (value == 11)
@@ -161,31 +158,59 @@ string hex_val(int value, string input_type) {
 		else if (value == 15)
 			return "F";
 		else
-			return val;
-		break;
-	default:
-		return error;
+			return to_string(value);
 	}
-	return error;
 }
 
 int hex_val(string value, string output_type) {
-	int n{ 0 };
-	if (output_type == "Binary")
-		n = 1;
-	else
-		n = 2;
-
-	switch (n)
-	{
-	case 1:
-
-		break;
-	case 2:
-
-		break;
-	default:
-		return 0;
+	if (output_type == "Binary") {
+		if (value == "A")
+			return 1010;
+		else if (value == "B")
+			return 1011;
+		else if (value == "C")
+			return 1100;
+		else if (value == "D")
+			return 1101;
+		else if (value == "E")
+			return 1110;
+		else if (value == "F")
+			return 1111;
+		else if (value == "0")
+			return 0000;
+		else if (value == "1")
+			return 0001;
+		else if (value == "2")
+			return 0010;
+		else if (value == "3")
+			return 0011;
+		else if (value == "4")
+			return 0100;
+		else if (value == "5")
+			return 0101;
+		else if (value == "6")
+			return 0110;
+		else if (value == "7")
+			return 0111;
+		else if (value == "8")
+			return 1000;
+		else
+			return 1001;
 	}
-	return 0;
+	else {
+		if (value == "A")
+			return 1010;
+		else if (value == "B")
+			return 1011;
+		else if (value == "C")
+			return 1100;
+		else if (value == "D")
+			return 1101;
+		else if (value == "E")
+			return 1110;
+		else if (value == "F")
+			return 1111;
+		else
+			return stoi(value);
+	}
 }
