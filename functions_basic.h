@@ -169,9 +169,9 @@ string hex_val(int value, string input_type) {
 	return error;
 }
 
-int hex_val(string value, string input_type) {
+int hex_val(string value, string output_type) {
 	int n{ 0 };
-	if (input_type == "Binary")
+	if (output_type == "Binary")
 		n = 1;
 	else
 		n = 2;
