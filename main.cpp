@@ -24,8 +24,8 @@ int main()
 			break;
 		case 2:
 			VALUE = input();
-			result = hexadecimal_to_binary(VALUE);
-			output(VALUE, result, "Hexadecimal", "Binary");
+			RESULT = hexadecimal_to_binary(VALUE);
+			output(VALUE, RESULT, "Hexadecimal", "Binary");
 			break;
 		case 3:
 			value = input("Binary");

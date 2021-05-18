@@ -35,6 +35,12 @@ void output(const int value, const string result, const string input_type, const
 	cout << "Value converted to " << output_type << " : " << result << endl;
 	cout << "---------------------------------------------------------\n" << endl;
 }
+void output(const string value, const string result, const string input_type, const string output_type) {
+	cout << "-----------------------RESULT----------------------------" << endl;
+	cout << input_type << " Value entered: " << value << endl;
+	cout << "Value converted to " << output_type << " : " << result << endl;
+	cout << "---------------------------------------------------------\n" << endl;
+}
 
 void exit() {
 	cout << "Exiting...\n" << endl;

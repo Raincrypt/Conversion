@@ -7,7 +7,7 @@
 using namespace std;
 
 string hex_val(int, string);
-int hex_val(string, string);
+string hex_val(char, string);
 
 int decimal_to_binary(int input) {
 	int temp{ 0 };
@@ -78,16 +78,16 @@ string binary_to_hexadecimal(int input) {
 	return hexadecimal;
 }
 
-int hexadecimal_to_binary(string input) {
-	int temp{ 0 };
-	int binary{ 0 };
+string hexadecimal_to_binary(string input) {
+	string temp{ 0 };
+	string binary{ 0 };
 	string num{ input };
 
 	//-----Hexadecimal to Binary working-----
 	for (int i = 0; i < input.length() ; i++)
 	{
-		temp = hex_val(num.at(i), "Binary");
-		binary = binary + temp * pow(10, i);
+		temp = hex_val(num[i], "Binary");
+		binary += temp;
 	}
 	//----------------------------------------
 
@@ -98,9 +98,14 @@ int hexadecimal_to_decimal(string input) {
 	int temp{ 0 };
 	int decimal{ 0 };
 	string num{ input };
+	int pw = input.length() - 1;
 
-	//-----Hexadecimal to Decimal working-----
-	
+	//-----Hexadecimal to Binary working-----
+	for (int i = 0; i < input.length(); i++, pw--)
+	{
+		temp = stoi(hex_val(num[i], "Decimal"));
+		decimal += temp * pow(16, pw);
+	}
 	//----------------------------------------
 
 	return decimal;
@@ -162,55 +167,58 @@ string hex_val(int value, string input_type) {
 	}
 }
 
-int hex_val(string value, string output_type) {
+string hex_val(char val, string output_type) {
+	string value{ val };
 	if (output_type == "Binary") {
 		if (value == "A")
-			return 1010;
+			return "1010";
 		else if (value == "B")
-			return 1011;
+			return "1011";
 		else if (value == "C")
-			return 1100;
+			return "1100";
 		else if (value == "D")
-			return 1101;
+			return "1101";
 		else if (value == "E")
-			return 1110;
+			return "1110";
 		else if (value == "F")
-			return 1111;
+			return "1111";
 		else if (value == "0")
-			return 0000;
+			return "0000";
 		else if (value == "1")
-			return 0001;
+			return "0001";
 		else if (value == "2")
-			return 0010;
+			return "0010";
 		else if (value == "3")
-			return 0011;
+			return "0011";
 		else if (value == "4")
-			return 0100;
+			return "0100";
 		else if (value == "5")
-			return 0101;
+			return "0101";
 		else if (value == "6")
-			return 0110;
+			return "0110";
 		else if (value == "7")
-			return 0111;
+			return "0111";
 		else if (value == "8")
-			return 1000;
+			return "1000";
+		else if (value == "9")
+			return "1001";
 		else
-			return 1001;
+			return "error";
 	}
 	else {
 		if (value == "A")
-			return 1010;
+			return "10";
 		else if (value == "B")
-			return 1011;
+			return "11";
 		else if (value == "C")
-			return 1100;
+			return "12";
 		else if (value == "D")
-			return 1101;
+			return "13";
 		else if (value == "E")
-			return 1110;
+			return "14";
 		else if (value == "F")
-			return 1111;
+			return "15";
 		else
-			return stoi(value);
+			return value;
 	}
 }
