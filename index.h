@@ -8,6 +8,7 @@ string input() {
 	string value{ "" };
 	cout << "Enter the value to be converted ( Hexadecimal ) : ";
 	cin >> value;
+	transform(value.begin(), value.end(), value.begin(), ::toupper); //making string to uppercase [transform function is included in bits/stdc++.h library]
 	return value;
 }
 int input(string input_type) {
